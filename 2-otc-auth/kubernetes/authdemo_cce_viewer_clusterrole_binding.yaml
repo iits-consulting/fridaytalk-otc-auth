@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: authdemo_cce_viewer_clusterrole_binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: view
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    # This Group Name needs to be replaced with the terraform output from authdemo_cce_viewer_group_id
+    name: 75089b94f3a94c78a0b6cb6f92732fae
