@@ -8,6 +8,6 @@ resource "keycloak_group_memberships" "developer_group_members" {
   group_id = keycloak_group.developer.id
 
   members  = [
-    keycloak_user.sophia_mustermann.username
+    keycloak_user.sophia_smith.username
   ]
 }

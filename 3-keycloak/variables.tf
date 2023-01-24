@@ -1,0 +1,1 @@
+variable "sophia_smith_password" {}

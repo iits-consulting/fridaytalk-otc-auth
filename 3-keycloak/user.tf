@@ -1,23 +1,13 @@
 locals {
   test_user_firstname = "sophia"
-  test_user_lastname  = "mustermann"
-
+  test_user_lastname  = "smith"
 }
 
 data "keycloak_realm" "gotc" {
   realm = "gotc"
 }
 
-
-resource "random_password" "sophia_mustermann_password" {
-  length      = 32
-  special     = false
-  min_lower   = 1
-  min_numeric = 1
-  min_upper   = 1
-}
-
-resource "keycloak_user" "sophia_mustermann" {
+resource "keycloak_user" "sophia_smith" {
   realm_id = data.keycloak_realm.gotc.id
   username = "${local.test_user_firstname}.${local.test_user_lastname}"
   enabled  = true
@@ -28,7 +18,7 @@ resource "keycloak_user" "sophia_mustermann" {
 
 
   initial_password {
-    value     = random_password.sophia_mustermann_password.result
+    value     = var.sophia_smith_password
     temporary = false
   }
 }

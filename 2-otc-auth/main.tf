@@ -35,3 +35,16 @@ resource "opentelekomcloud_identity_role_assignment_v3" "authdemo_cce_viewer" {
   project_id = data.opentelekomcloud_identity_project_v3.current.id
   role_id    = opentelekomcloud_identity_role_v3.authdemo_cce_viewer.id
 }
+
+resource "opentelekomcloud_identity_user_v3" "sophia_smith" {
+  name     = "sophia_smith"
+  password = var.sophia_smith_password
+  enabled = true
+}
+
+resource "opentelekomcloud_identity_user_group_membership_v3" "sophia_smith_developer" {
+  user = opentelekomcloud_identity_user_v3.sophia_smith.id
+  groups = [
+    opentelekomcloud_identity_group_v3.authdemo_cce_viewer.id,
+  ]
+}

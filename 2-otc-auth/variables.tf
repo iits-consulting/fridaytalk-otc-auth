@@ -25,3 +25,5 @@ locals {
     Context = var.context
   }
 }
+
+variable "sophia_smith_password" {}
