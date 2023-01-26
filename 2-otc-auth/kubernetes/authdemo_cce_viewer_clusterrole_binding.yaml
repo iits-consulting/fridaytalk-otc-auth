@@ -10,4 +10,4 @@ subjects:
   - apiGroup: rbac.authorization.k8s.io
     kind: Group
     # This Group Name needs to be replaced with the terraform output from authdemo_cce_viewer_group_id
-    name: 75089b94f3a94c78a0b6cb6f92732fae
+    name: 7f1993d6c44c4d93b158cb1883c7dd3c
